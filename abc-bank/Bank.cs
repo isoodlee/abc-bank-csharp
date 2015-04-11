@@ -21,10 +21,22 @@ namespace abc_bank
         }
 
         public String CustomerSummary() {
-            String summary = "Customer Summary";
+            //String summary = "Customer Summary";
+            var sb = new StringBuilder(512);
+            sb.Append("Customer Summary");
             foreach (Customer c in customers)
-                summary += "\n - " + c.GetName() + " (" + format(c.GetNumberOfAccounts(), "account") + ")";
-            return summary;
+            {
+                //summary += "\n - " + c.GetName() + " (" + format(c.GetNumberOfAccounts(), "account") + ")";
+                sb.Append("\n - ");
+                sb.Append(c.GetName());
+                sb.Append(" (");
+                sb.Append(format(c.GetNumberOfAccounts(), "account"));
+                sb.Append(")");
+
+
+            }
+            return sb.ToString();
+            //return summary;
         }
 
         //Make sure correct plural of word is created based on the number passed in:

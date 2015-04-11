@@ -61,13 +61,13 @@ namespace abc_bank
 
            //Translate to pretty account type
             switch(a.GetAccountType()){
-                case Account.CHECKING:
+                case Account.eAccountType.CHECKING:
                     s += "Checking Account\n";
                     break;
-                case Account.SAVINGS:
+                case Account.eAccountType.SAVINGS:
                     s += "Savings Account\n";
                     break;
-                case Account.MAXI_SAVINGS:
+                case Account.eAccountType.MAXI_SAVINGS:
                     s += "Maxi Savings Account\n";
                     break;
             }
@@ -84,7 +84,8 @@ namespace abc_bank
 
         private String ToDollars(double d)
         {
-            return String.Format("$%,.2f", Math.Abs(d));
+            //return String.Format("$%,.2f", Math.Abs(d));
+            return String.Format("{0:C}", Math.Abs(d));
         }
     }
 }
